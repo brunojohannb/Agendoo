@@ -1,0 +1,69 @@
+.container {
+    width: 450px;
+    background-color: #F5F5F5;
+    padding: 40px;
+}
+
+.logo {
+    text-align: center;
+    color: #000000;
+}
+
+.inputs {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 10px auto;
+}
+
+.inputs input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #33333355;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 20px 20px;
+}
+
+.inputs input::placeholder {
+    color: #333333d1;
+}
+
+.inputs .icon {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #333333d1;
+}
+
+.container button {
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #00a146;
+    border-radius: 5px;
+    border: 1px solid #33333355;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #007436;
+}
+
+.resetPassword {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.resetPassword a {
+    font-size: 14.5px;
+    color: #8B0000;
+}
+
+.resetPassword a:hover {
+    color: #B87333;
+}
