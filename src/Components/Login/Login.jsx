@@ -31,7 +31,8 @@ const Login = () => {
             onChange={ (e) => setPassword(e.target.value) }/>
             <FaLock className="icon"/>
           </div>
-          <button>ENTRAR</button>
+          <button className="btnEntrar">ENTRAR</button>
+          <button className="btnCriar">CRIAR UMA CONTA</button>
           <div className="resetPassword">
             <a href="#">Esqueceu a senha?</a>
           </div>
