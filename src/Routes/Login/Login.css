@@ -1,6 +1,6 @@
 .container {
     width: 600px;
-    background-color: #F5F5F5;
+    background-color: #fffefe;
     padding: 40px;
 }
 
@@ -38,15 +38,6 @@
     box-shadow: 0 0 8px rgba(46, 139, 87, 0.5);
     background-color: #ffffff;
     outline: none;
-}
-
-.inputs .icon {
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #333333d1;
 }
 
 .container .btnEntrar {

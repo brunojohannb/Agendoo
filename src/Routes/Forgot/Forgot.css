@@ -1,0 +1,61 @@
+.containerF {
+    width: 600px;
+    background-color: #ffffff;
+    padding: 40px;
+}
+
+.textCont {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.textCont p {
+    margin-top: 5px;
+}
+
+.inputsF {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 10px auto;
+}
+
+.inputsF input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #33333355;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 20px 20px;
+}
+
+.inputsF input::placeholder {
+    color: #333333d1;
+}
+
+.inputsF input:hover {
+    border-color: #646600;
+}
+
+.inputsF input:focus {
+    border-color: #98a600;
+    box-shadow: 0 0 8px rgba(247, 255, 28, 0.5);
+    background-color: #ffffff;
+    outline: none;
+}
+
+.containerF .btnRecuperarF {
+    width: 100%;
+    height: 30px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #dfb300;
+    border-radius: 5px;
+    border: 1px solid #33333355;
+    cursor: pointer;
+}
+
+.containerF .btnRecuperarF:hover {
+    background-color: #b08d00;
+}

@@ -1,6 +1,7 @@
-import { FaUser, FaLock } from "react-icons/fa"
 import { useState } from "react"
 import "./Login.css"
+
+import { Link } from "react-router-dom"
 
 const Login = () => {
 
@@ -14,7 +15,7 @@ const Login = () => {
   }
 
   return (
-    <div className='container'>
+      <div className='container'>
         <form onSubmit={handleSubmit}>
           <h1 className="logo">RICHMO</h1>
           <div className="inputs">
@@ -22,22 +23,20 @@ const Login = () => {
             type="email" 
             placeholder='E-mail' 
             onChange={ (e) => setUsername(e.target.value) }/>
-            <FaUser className="icon"/>
           </div>
           <div className="inputs">
             <input
             type="password" 
             placeholder='Senha'
             onChange={ (e) => setPassword(e.target.value) }/>
-            <FaLock className="icon"/>
           </div>
           <button className="btnEntrar">ENTRAR</button>
-          <button className="btnCriar">CRIAR UMA CONTA</button>
+          <button className="btnCriar" href="./Create/Create.jsx">CRIAR UMA CONTA</button>
           <div className="resetPassword">
-            <a href="#">Esqueceu a senha?</a>
+            <Link to="/ForgotPassword">Esqueceu a senha?</Link>
           </div>
         </form>
-     </div>
+      </div>
   )
 }
 
