@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import Login from './Routes/Login/Login.jsx'
 import Forgot from './Routes/Forgot/Forgot.jsx'
-import Create from './Routes/Create/create.jsx'
+import Create from './Routes/Create/Temp.jsx'
 
 const router = createBrowserRouter([
   {
