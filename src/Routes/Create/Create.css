@@ -1,0 +1,42 @@
+.containerC {
+    width: 500px;
+    background-color: #000000;
+    padding: 40px;
+}
+
+.logoContC {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.logoImageC {
+    width: 300px;
+}
+
+.textContC {
+    color: #ffffff;
+    margin: 15px;
+    text-align: center;
+}
+
+.textContC p {
+    margin-top: 5px;
+}
+
+
+.containerC .btnRecuperarC {
+    width: 100%;
+    height: 40px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #00a146;
+    border-radius: 5px;
+    border: 1px solid #33333355;
+    cursor: pointer;
+}
+
+.containerC .btnRecuperarC:hover {
+    background-color: #007436;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./Login.css"
+import RichmoLogo from "../../assets/RichmoLogo.png"
 
 import { Link } from "react-router-dom"
 
@@ -17,7 +18,9 @@ const Login = () => {
   return (
       <div className='container'>
         <form onSubmit={handleSubmit}>
-          <h1 className="logo">RICHMO</h1>
+          <div className="logoCont">
+            <img src={RichmoLogo} alt="RichmoLogo" className='logoImage' />
+          </div>
           <div className="inputs">
             <input
             type="email" 
@@ -30,8 +33,10 @@ const Login = () => {
             placeholder='Senha'
             onChange={ (e) => setPassword(e.target.value) }/>
           </div>
-          <button className="btnEntrar">ENTRAR</button>
-          <button className="btnCriar" href="./Create/Create.jsx">CRIAR UMA CONTA</button>
+            <button className="btnEntrar">ENTRAR</button>
+            <Link to="/CreateAcount">
+              <button className="btnCriar">CRIAR UMA CONTA</button>
+            </Link>
           <div className="resetPassword">
             <Link to="/ForgotPassword">Esqueceu a senha?</Link>
           </div>

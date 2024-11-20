@@ -1,11 +1,22 @@
 .containerF {
-    width: 600px;
-    background-color: #ffffff;
+    width: 500px;
+    background-color: #000000;
     padding: 40px;
 }
 
+.logoContF {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.logoImageF {
+    width: 300px;
+}
+
 .textCont {
-    margin-top: 10px;
+    color: #ffffff;
+    margin: 15px;
     text-align: center;
 }
 
@@ -34,12 +45,12 @@
 }
 
 .inputsF input:hover {
-    border-color: #646600;
+    border-color: #889400;
 }
 
 .inputsF input:focus {
-    border-color: #98a600;
-    box-shadow: 0 0 8px rgba(247, 255, 28, 0.5);
+    border-color: #889400;
+    box-shadow: 0 0 10px rgb(211, 218, 0);
     background-color: #ffffff;
     outline: none;
 }
