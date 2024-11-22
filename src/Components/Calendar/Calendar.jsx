@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Calendar.css'; // Arquivo CSS para o estilo
+import './Calendar.css';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -10,7 +10,7 @@ const Calendar = () => {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const calendar = [];
 
-    for (let i = 0; i < firstDay; i++) calendar.push(null); // Dias vazios
+    for (let i = 0; i < firstDay; i++) calendar.push(null);
     for (let day = 1; day <= daysInMonth; day++) calendar.push(day);
 
     return calendar;
@@ -32,7 +32,7 @@ const Calendar = () => {
     <div className="calendar-container">
       <div className="calendar-header">
         <button onClick={prevMonth} className="calendar-button">←</button>
-        <h2>{currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}</h2>
+        <h2>{currentDate.toLocaleString('default', { month: 'long' }).toUpperCase()} {currentDate.getFullYear()}</h2>
         <button onClick={nextMonth} className="calendar-button">→</button>
       </div>
       <div className="calendar-grid">

@@ -1,11 +1,11 @@
 
 .calendar-container {
-    max-width: 210vh;
+    max-width: 150vh;
     min-height: 85vh;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 5px 5px 0px;
     font-family: 'Arial', sans-serif;
   }
   
@@ -36,7 +36,6 @@
     background-color: #0056b3;
   }
   
-  /* Grid do Calendário */
   .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -53,11 +52,14 @@
   }
   
   .calendar-day {
-    padding: 10px;
+    height: 70px;
+    padding: 5px;
     border: 1px solid #ddd;
+    color: #3333336f;
     background-color: #fff;
     border-radius: 5px;
     position: relative;
+    overflow: hidden;
   }
   
   .calendar-day:hover {

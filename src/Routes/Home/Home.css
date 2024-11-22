@@ -2,3 +2,36 @@
     min-height: 100vh;
     background-color: #000000;
 }
+
+.bodyHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #000000;
+    max-width: 210vh; 
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  
+  .bodyHome > * {
+    flex: 1;
+    max-width: 48%;
+  }
+  
+  
+  .bodyHome > *:first-child {
+    flex: 0 0 10%;
+    max-width: 10%;
+    position: relative;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+
+  .bodyHome > *:last-child {
+    flex: 0 0 90%;
+    max-width: 90%;
+    position: relative;
+    z-index: 1;
+  }
+  
