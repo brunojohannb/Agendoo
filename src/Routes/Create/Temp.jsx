@@ -5,6 +5,7 @@ import RichmoLogo from "../../assets/RichmoLogo.png"
 
 const Create = () => {
   return (
+    <div className='Create'>
       <div className='containerC'>
         <form>
           <div className="logoContC">
@@ -17,6 +18,7 @@ const Create = () => {
           <button className="btnRecuperarC">SOLICITAR CONTA</button>
         </form>
       </div>
+    </div>
   )
 }
 

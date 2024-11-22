@@ -13,6 +13,7 @@ const Forgot = () => {
   }
 
   return (
+    <div className='Forgot'>
       <div className='containerF'>
         <form onSubmit={handleSubmit}>
           <div className="logoContF">
@@ -31,6 +32,7 @@ const Forgot = () => {
           <button className="btnRecuperarF">RECUPERAR SENHA</button>
         </form>
       </div>
+    </div>
   )
 }
 

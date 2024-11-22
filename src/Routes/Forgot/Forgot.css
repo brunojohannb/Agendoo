@@ -1,3 +1,11 @@
+.Forgot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000;
+}
+
 .containerF {
     width: 500px;
     background-color: #000000;
