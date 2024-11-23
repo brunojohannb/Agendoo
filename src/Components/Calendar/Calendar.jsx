@@ -7,8 +7,9 @@ const Calendar = () => {
   const [events, setEvents] = useState([]);
   const [selectedDay, setSelectedDay] = useState(null);
   const [showEvents, setShowEvents] = useState(false);
+  const [viewMode, setViewMode] = useState('month');
 
-  const generateCalendar = (year, month) => {
+  const generateMonth = (year, month) => {
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const calendar = [];
@@ -19,11 +20,38 @@ const Calendar = () => {
     return calendar;
   };
 
+  const generateWeek = (date) => {
+    const startOfWeek = new Date(date);
+    startOfWeek.setDate(date.getDate() - date.getDay());
+    const weekDays = [];
+
+    for (let i = 0; i < 7; i++) {
+      const day = new Date(startOfWeek);
+      day.setDate(startOfWeek.getDate() + i);
+      weekDays.push(day);
+    }
+
+    return weekDays;
+  };
+
   const nextMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
   const prevMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
 
+  const nextWeek = () => {
+    const nextWeekDate = new Date(currentDate);
+    nextWeekDate.setDate(currentDate.getDate() + 7);
+    setCurrentDate(nextWeekDate);
+  };
+
+  const prevWeek = () => {
+    const prevWeekDate = new Date(currentDate);
+    prevWeekDate.setDate(currentDate.getDate() - 7);
+    setCurrentDate(prevWeekDate);
+  };
+
+
   const openEvents = (day) => {
-    setSelectedDay(new Date(currentDate.getFullYear(), currentDate.getMonth(), day));
+    setSelectedDay(day);
     setShowEvents(true);
   };
 
@@ -36,7 +64,9 @@ const Calendar = () => {
     setEvents((prevEvents) => [...prevEvents, { ...newEvent, date: selectedDay }]);
   };
 
-  const days = generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+  const monthDays = generateMonth(currentDate.getFullYear(), currentDate.getMonth());
+  const weekDays = generateWeek(currentDate);
+
   const selectedDayEvents = events.filter(
     (event) =>
       selectedDay &&
@@ -47,29 +77,80 @@ const Calendar = () => {
   return (
     <div className="calendar-container">
       <div className="calendar-header">
-        <button onClick={prevMonth} className="calendar-button">←</button>
-        <h2>{currentDate.toLocaleString('default', { month: 'long' }).toUpperCase()} {currentDate.getFullYear()}</h2>
-        <button onClick={nextMonth} className="calendar-button">→</button>
+        <button
+          onClick={viewMode === 'month' ? prevMonth : prevWeek}
+          className="calendar-button"
+        >
+          ←
+        </button>
+        <h2>
+          {viewMode === 'month'
+            ? `${currentDate.toLocaleString('default', { month: 'long' }).toUpperCase()} ${
+                currentDate.getFullYear()
+              }`
+            : `Semana de ${weekDays[0].toLocaleDateString()} a ${weekDays[6].toLocaleDateString()}`}
+        </h2>
+        <button
+          onClick={viewMode === 'month' ? nextMonth : nextWeek}
+          className="calendar-button"
+        >
+          →
+        </button>
+        <button
+          className="calendar-view-toggle"
+          onClick={() => setViewMode(viewMode === 'month' ? 'week' : 'month')}
+        >
+          Alternar para {viewMode === 'month' ? 'Semana' : 'Mês'}
+        </button>
       </div>
-      <div className="calendar-grid">
-        {['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].map((day, index) => (
-          <div key={index} className="calendar-day-header">{day}</div>
+      <div
+        className={`calendar-grid ${viewMode === 'week' ? 'week-view' : ''}`}
+      >
+       {['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].map((day, index) => (
+        <div key={index} className="calendar-day-header">{day}</div>
         ))}
-        {days.map((day, index) => (
-          <div
-            key={index}
-            className={`calendar-day ${day ? 'calendar-day-active' : ''}`}
-            onClick={() => day && openEvents(day)}
-          >
-            <span>{day}</span>
-            {events
-              .filter((event) => event.date.getDate() === day && event.date.getMonth() === currentDate.getMonth())
+       {viewMode === 'month' &&
+        monthDays.map((day, index) => (
+      <div
+        key={index}
+        className={`calendar-day ${day ? 'calendar-day-active' : ''}`}
+        onClick={() =>
+          day && openEvents(new Date(currentDate.getFullYear(), currentDate.getMonth(), day))
+        }
+      >
+        <span>{day}</span>
+        {events
+          .filter(
+            (event) =>
+              event.date.getDate() === day &&
+              event.date.getMonth() === currentDate.getMonth()
+          )
+          .map((event, idx) => (
+            <div key={idx} className="calendar-event">{event.name}</div>
+          ))}
+      </div>
+     ))}
+      {viewMode === 'week' &&
+        weekDays.map((day, index) => (
+      <div
+        key={index}
+        className="calendar-day calendar-day-active"
+        onClick={() => openEvents(day)}
+      >
+        <span>{day.getDate()}</span>
+        {events
+          .filter(
+            (event) =>
+              event.date.getDate() === day.getDate() &&
+              event.date.getMonth() === day.getMonth()
+             )
               .map((event, idx) => (
-                <div key={idx} className="calendar-event">{event.name}</div>
+              <div key={idx} className="calendar-event">{event.name}</div>
               ))}
-          </div>
-        ))}
+            </div>
+          ))}
       </div>
+
 
       {showEvents && (
         <Events

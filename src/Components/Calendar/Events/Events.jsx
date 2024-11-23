@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import EventCard from './EventCard';
+import EventForm from './EventForm';
 import './Events.css';
 
 const Events = ({ date, events, onClose, onAddEvent }) => {
+  const [isAddingEvent, setIsAddingEvent] = useState(false);
+
+  const handleAddEvent = (newEvent) => {
+    onAddEvent(newEvent);
+    setIsAddingEvent(false);
+  };
+
   return (
     <div className="backEvents">
       <div className="contEvents">
@@ -24,20 +32,21 @@ const Events = ({ date, events, onClose, onAddEvent }) => {
           )}
           <button
             className="addNewEventBtn"
-            onClick={() => {
-              const eventName = prompt('Digite o nome do evento:');
-              const eventTime = prompt('Digite o horário do evento (opcional):');
-              if (eventName) {
-                onAddEvent({ name: eventName, time: eventTime });
-              }
-            }}
+            onClick={() => setIsAddingEvent(true)}
           >
             NOVO EVENTO
           </button>
         </div>
       </div>
+      {isAddingEvent && (
+        <EventForm 
+          onSubmit={handleAddEvent} 
+          onCancel={() => setIsAddingEvent(false)} 
+        />
+      )}
     </div>
   );
 };
 
 export default Events;
+
