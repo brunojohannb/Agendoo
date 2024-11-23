@@ -1,9 +1,26 @@
 .contColaboradores {
     max-width: 190vh;
     min-height: 85vh;
+    max-height: 90vh;
     margin: 0 auto;
     padding: 20px;
     background-color: #343434;
     border-radius: 0px 5px 5px 0px;
     font-family: 'Arial', sans-serif;
 }
+
+  .colaboradores-list {
+    margin-top: 20px;
+  }
+  
+  .colaboradores-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .colaboradores-list li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: white;
+  }

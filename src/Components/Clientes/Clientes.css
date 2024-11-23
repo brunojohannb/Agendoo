@@ -1,6 +1,7 @@
 .contClientes {
     max-width: 190vh;
     min-height: 85vh;
+    max-height: 90vh;
     margin: 0 auto;
     padding: 20px;
     background-color: #343434;
