@@ -3,13 +3,16 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #000000;
+    background: #EFF0F2;
 }
 
 .containerF {
     width: 500px;
-    background-color: #000000;
     padding: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .logoContF {
@@ -22,14 +25,18 @@
     width: 300px;
 }
 
-.textCont {
-    color: #ffffff;
+.textCont h1 {
+    color: #000000;
     margin: 15px;
+    font-family: "Funnel Sans";
     text-align: center;
 }
 
 .textCont p {
-    margin-top: 5px;
+    color: #000000;
+    margin-bottom: 25px;
+    font-family: "Funnel Sans";
+    text-align: center;
 }
 
 .inputsF {
@@ -44,6 +51,8 @@
     height: 100%;
     border: 1px solid #33333355;
     border-radius: 5px;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: "Funnel Sans";
     font-size: 16px;
     padding: 20px 20px;
 }
@@ -58,7 +67,8 @@
 
 .inputsF input:focus {
     border-color: #889400;
-    box-shadow: 0 0 10px rgb(211, 218, 0);
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3),
+                0 0 16px rgba(250, 163, 0, 0.2);
     background-color: #ffffff;
     outline: none;
 }
@@ -67,14 +77,17 @@
     width: 100%;
     height: 30px;
     color: #ffffff;
+    font-family: "Funnel Sans";
     font-size: 15px;
     font-weight: bold;
-    background-color: #dfb300;
+    background-color: #FAA300;
     border-radius: 5px;
     border: 1px solid #33333355;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .containerF .btnRecuperarF:hover {
-    background-color: #b08d00;
+    background-color: #e29300;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Create.css"
-import RichmoLogo from "../../assets/RichmoLogo.png"
+import RichmoLogoRoxo from "../../assets/RichmoLogoRoxo.png"
 
 
 const Create = () => {
@@ -9,11 +9,11 @@ const Create = () => {
       <div className='containerC'>
         <form>
           <div className="logoContC">
-            <img src={RichmoLogo} alt="RichmoLogo" className='logoImageC'/>
+            <img src={RichmoLogoRoxo} alt="RichmoLogo" className='logoImageC'/>
           </div>
           <div className="textContC">
             <h1>Abra sua conta</h1>
-            <p>solicite uma nova conta entrando em contato conosco através do Whattsapp:</p>
+            <p>Solicite uma nova conta entrando em contato conosco através do WhatsApp:</p>
           </div>
           <button className="btnRecuperarC">SOLICITAR CONTA</button>
         </form>
