@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Calendar.css';
-import Events from './Events';
+import Events from './Events/Events';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -32,13 +32,8 @@ const Calendar = () => {
     setSelectedDay(null);
   };
 
-  const addEvent = (eventName) => {
-    if (eventName) {
-      setEvents([
-        ...events,
-        { date: selectedDay, name: eventName },
-      ]);
-    }
+  const addEvent = (newEvent) => {
+    setEvents((prevEvents) => [...prevEvents, { ...newEvent, date: selectedDay }]);
   };
 
   const days = generateCalendar(currentDate.getFullYear(), currentDate.getMonth());

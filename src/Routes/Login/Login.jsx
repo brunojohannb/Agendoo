@@ -34,7 +34,9 @@ const Login = () => {
             placeholder='Senha'
             onChange={ (e) => setPassword(e.target.value) }/>
           </div>
+            <Link to='/Home'>
               <button className="btnEntrar">ENTRAR</button>
+            </Link>
             <Link to="/CreateAcount">
               <button className="btnCriar">CRIAR UMA CONTA</button>
             </Link>
