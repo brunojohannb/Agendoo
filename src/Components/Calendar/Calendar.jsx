@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './Calendar.css';
+import Events from './Events';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [events, setEvents] = useState([]);
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [showEvents, setShowEvents] = useState(false);
 
   const generateCalendar = (year, month) => {
     const firstDay = new Date(year, month, 1).getDay();
@@ -19,14 +22,32 @@ const Calendar = () => {
   const nextMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
   const prevMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
 
-  const addEvent = (day) => {
-    const eventName = prompt('Digite o nome do evento:');
+  const openEvents = (day) => {
+    setSelectedDay(new Date(currentDate.getFullYear(), currentDate.getMonth(), day));
+    setShowEvents(true);
+  };
+
+  const closeEvents = () => {
+    setShowEvents(false);
+    setSelectedDay(null);
+  };
+
+  const addEvent = (eventName) => {
     if (eventName) {
-      setEvents([...events, { date: new Date(currentDate.getFullYear(), currentDate.getMonth(), day), name: eventName }]);
+      setEvents([
+        ...events,
+        { date: selectedDay, name: eventName },
+      ]);
     }
   };
 
   const days = generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+  const selectedDayEvents = events.filter(
+    (event) =>
+      selectedDay &&
+      event.date.getDate() === selectedDay.getDate() &&
+      event.date.getMonth() === selectedDay.getMonth()
+  );
 
   return (
     <div className="calendar-container">
@@ -43,7 +64,7 @@ const Calendar = () => {
           <div
             key={index}
             className={`calendar-day ${day ? 'calendar-day-active' : ''}`}
-            onClick={() => day && addEvent(day)}
+            onClick={() => day && openEvents(day)}
           >
             <span>{day}</span>
             {events
@@ -54,6 +75,15 @@ const Calendar = () => {
           </div>
         ))}
       </div>
+
+      {showEvents && (
+        <Events
+          date={selectedDay}
+          events={selectedDayEvents}
+          onClose={closeEvents}
+          onAddEvent={addEvent}
+        />
+      )}
     </div>
   );
 };

@@ -28,10 +28,10 @@
     z-index: 10;
   }
 
-  .bodyHome > *:last-child {
+  .contentArea {
     flex: 0 0 90%;
     max-width: 90%;
-    position: relative;
-    z-index: 1;
+    background-color: #000000;
+    border-radius: 0px 5px 5px 0px;
   }
   
