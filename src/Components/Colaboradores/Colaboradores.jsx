@@ -21,11 +21,13 @@ const Colaboradores = () => {
 
   return (
     <div className="contColaboradores">
-      <h1>Colaboradores</h1>
-      
-      <button onClick={openModal} className="btn-open-modal">
-        Novo
-      </button>
+
+      <div className='contCTopo'>
+        <h1>Colaboradores</h1>
+        <button onClick={openModal} className="btn-open-modal">
+          Adicionar Colaborador
+        </button>
+      </div>
 
       <ColabForm
         isOpen={isModalOpen}

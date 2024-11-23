@@ -3,19 +3,28 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #000000;
+    background-image: url('./src/assets/BackgroundLogin.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .container {
     width: 500px;
-    background-color: #000000;
     padding: 40px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .logoCont {
     display: flex;
     justify-content: center ;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .logoImage {
@@ -29,11 +38,24 @@
     margin: 10px auto;
 }
 
-.inputs input {
+.inputEmail {
     width: 100%;
     height: 100%;
     border: 1px solid #33333355;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-family: "Funnel Sans";
+    font-size: 16px;
+    padding: 20px 20px;
+}
+
+.inputPassword {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #33333355;
+    border-radius: 0 0 5px 5px;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-family: "Funnel Sans";
     font-size: 16px;
     padding: 20px 20px;
 }
@@ -43,13 +65,13 @@
 }
 
 .inputs input:hover {
-    border-color: #2e8b57;
+    border-color: #fAA300;
 }
 
 .inputs input:focus {
-    border-color: #008227;
-    box-shadow: 0 0 10px rgb(1, 193, 84);
     background-color: #ffffff;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3),
+                0 0 16px rgba(250, 163, 0, 0.2);
     outline: none;
 }
 
@@ -57,27 +79,32 @@
     width: 100%;
     height: 50px;
     color: #ffffff;
+    font-family: "Funnel Sans";
     font-size: 20px;
     font-weight: bold;
-    background-color: #00a146;
+    background-color: #149911;
     border-radius: 5px;
     border: 1px solid #33333355;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    margin-top: 15px;
 }
 
 .container .btnEntrar:hover {
-    background-color: #007436;
+    background-color: #256D1B;
 }
 
 .container .btnCriar {
     width: 100%;
     height: 30px;
     color: #000000;
+    font-family: "Funnel Sans";
     font-size: 12px;
     font-weight: bold;
     background-color: #ffffff;
     border-radius: 5px;
     border: 1px solid #33333355;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     margin-top: 10px;
 }
@@ -98,5 +125,5 @@
 }
 
 .resetPassword a:hover {
-    color: #B87333;
+    color: #000000;
 }

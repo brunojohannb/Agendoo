@@ -34,6 +34,7 @@ const ColabForm = ({ isOpen, onClose, onSubmit }) => {
   };
 
   if (!isOpen) return null;
+
   return (
     <div className="modal">
       <div className="modal-content">
@@ -51,7 +52,7 @@ const ColabForm = ({ isOpen, onClose, onSubmit }) => {
               required
             />
           </div>
-          
+
           <div className="input-group">
             <label htmlFor="email">Email:</label>
             <input
@@ -100,7 +101,10 @@ const ColabForm = ({ isOpen, onClose, onSubmit }) => {
             />
           </div>
 
-          <button type="submit" className="submit-btn">Cadastrar</button>
+          <div className="button-group">
+            <button type="submit" className="submit-btn">Cadastrar</button>
+            <button type="button" className="cancel-btn" onClick={onClose}>Cancelar</button>
+          </div>
         </form>
       </div>
     </div>

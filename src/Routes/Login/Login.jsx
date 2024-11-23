@@ -23,13 +23,15 @@ const Login = () => {
             <img src={RichmoLogo} alt="RichmoLogo" className='logoImage' />
           </div>
           <div className="inputs">
-            <input
+            <input 
+            className="inputEmail"
             type="email" 
             placeholder='E-mail' 
             onChange={ (e) => setUsername(e.target.value) }/>
           </div>
           <div className="inputs">
-            <input
+            <input 
+            className="inputPassword"
             type="password" 
             placeholder='Senha'
             onChange={ (e) => setPassword(e.target.value) }/>
