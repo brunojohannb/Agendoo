@@ -36,8 +36,10 @@ const Calendar = () => {
     return weekDays;
   };
 
-  const nextMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
-  const prevMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+  const nextMonth = () =>
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+  const prevMonth = () =>
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
 
   const nextWeek = () => {
     const nextWeekDate = new Date(currentDate);
@@ -65,6 +67,16 @@ const Calendar = () => {
     setEvents((prevEvents) => [...prevEvents, { ...newEvent, date: selectedDay }]);
   };
 
+  const isToday = (day) => {
+    const today = new Date();
+    return (
+      day &&
+      day.getDate() === today.getDate() &&
+      day.getMonth() === today.getMonth() &&
+      day.getFullYear() === today.getFullYear()
+    );
+  };
+
   const monthDays = generateMonth(currentDate.getFullYear(), currentDate.getMonth());
   const weekDays = generateWeek(currentDate);
 
@@ -72,13 +84,14 @@ const Calendar = () => {
     (event) =>
       selectedDay &&
       event.date.getDate() === selectedDay.getDate() &&
-      event.date.getMonth() === selectedDay.getMonth()
+      event.date.getMonth() === selectedDay.getMonth() &&
+      event.date.getFullYear() === selectedDay.getFullYear()
   );
 
   return (
     <div className="calendar-container">
       <div className="calendar-header">
-        <div className='calendarArrowsCont'>
+        <div className="calendarArrowsCont">
           <button
             onClick={viewMode === 'month' ? prevMonth : prevWeek}
             className="calendar-button left-arrow"
@@ -88,7 +101,9 @@ const Calendar = () => {
 
           <h2>
             {viewMode === 'month'
-              ? `${currentDate.toLocaleString('default', { month: 'long' }).toUpperCase()} ${currentDate.getFullYear()}`
+              ? `${currentDate.toLocaleString('default', {
+                  month: 'long',
+                }).toUpperCase()} ${currentDate.getFullYear()}`
               : `Semana de ${weekDays[0].toLocaleDateString()} a ${weekDays[6].toLocaleDateString()}`}
           </h2>
 
@@ -112,16 +127,23 @@ const Calendar = () => {
 
       <div className={`calendar-grid ${viewMode === 'week' ? 'week-view' : ''}`}>
         {['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].map((day, index) => (
-          <div key={index} className="calendar-day-header">{day}</div>
+          <div key={index} className="calendar-day-header">
+            {day}
+          </div>
         ))}
 
         {viewMode === 'month' &&
           monthDays.map((day, index) => (
             <div
               key={index}
-              className={`calendar-day ${day ? 'calendar-day-active' : ''}`}
+              className={`calendar-day ${day ? 'calendar-day-active' : ''} ${
+                isToday(new Date(currentDate.getFullYear(), currentDate.getMonth(), day))
+                  ? 'today'
+                  : ''
+              }`}
               onClick={() =>
-                day && openEvents(new Date(currentDate.getFullYear(), currentDate.getMonth(), day))
+                day &&
+                openEvents(new Date(currentDate.getFullYear(), currentDate.getMonth(), day))
               }
             >
               <span>{day}</span>
@@ -132,7 +154,9 @@ const Calendar = () => {
                     event.date.getMonth() === currentDate.getMonth()
                 )
                 .map((event, idx) => (
-                  <div key={idx} className="calendar-event">{event.name}</div>
+                  <div key={idx} className="calendar-event">
+                    {event.name}
+                  </div>
                 ))}
             </div>
           ))}
@@ -141,7 +165,7 @@ const Calendar = () => {
           weekDays.map((day, index) => (
             <div
               key={index}
-              className="calendar-day calendar-day-active"
+              className={`calendar-day calendar-day-active ${isToday(day) ? 'today' : ''}`}
               onClick={() => openEvents(day)}
             >
               <span>{day.getDate()}</span>
@@ -152,7 +176,9 @@ const Calendar = () => {
                     event.date.getMonth() === day.getMonth()
                 )
                 .map((event, idx) => (
-                  <div key={idx} className="calendar-event">{event.name}</div>
+                  <div key={idx} className="calendar-event">
+                    {event.name}
+                  </div>
                 ))}
             </div>
           ))}

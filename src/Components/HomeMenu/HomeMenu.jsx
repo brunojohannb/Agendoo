@@ -4,7 +4,7 @@ import RichmoLogo from "../../assets/RichmoLogo.png"
 import { FaCalendarAlt, FaUsers, FaUserFriends, FaFileAlt } from 'react-icons/fa';
 
 const HomeMenu = ({ onMenuClick }) => {
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState('calendar');
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
