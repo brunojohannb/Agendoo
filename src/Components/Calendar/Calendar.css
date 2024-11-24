@@ -1,49 +1,54 @@
 .calendar-container {
     max-width: 190vh;
-    min-height: 85vh;
-    max-height: 90vh;
+    min-height: 100vh;
+    max-height: 100vh;
     margin: 0 auto;
     padding: 20px;
-    background-color: #343434;
-    border-radius: 0px 5px 5px 0px;
-    font-family: 'Arial', sans-serif;
+    background-color: #38106B;
+    font-family: "Afacad Flux";
   }
-  
- 
+
   .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   
-  .calendar-header h2 {
+  .calendarArrowsCont {
+    display: flex;
+    min-width: 550px;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+  
+  .calendarArrowsCont h2 {
+    font-family: "Afacad Flux";
     font-size: 1.5rem;
     color: #ffffff;
   }
   
   .calendar-button {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background-color: #38106B;
+    color: rgb(255, 255, 255);
+    width: 40px;
+    height: 30px;
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;
     cursor: pointer;
-    font-size: 1.2rem;
-  }
-  
-  .calendar-button:hover {
-    background-color: #e2e2e2;
+    font-size: 2rem;
+    font-family: "Afacad Flux";
   }
 
-  .calendar-view-toggle {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: none;
+
+  .calendar-view-dropdown {
+    width: 170px;
+    margin-right: 10px;
+    padding: 5px;
+    font-family: "Afacad Flux";
+    font-size: 16px;
     border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.2rem;
+    border: 1px solid #ccc;
   }
   
   .calendar-grid {
@@ -54,10 +59,11 @@
   }
 
   .calendar-grid.week-view .calendar-day {
-    height: 65vh;
+    height: 77.5vh;
 }
   
   .calendar-day-header {
+    font-family: "Afacad Flux";
     font-weight: bold;
     background-color: #8B0000;
     color: white;
@@ -66,7 +72,7 @@
   }
   
   .calendar-day {
-    height: 70px;
+    height: 90px;
     padding: 5px;
     border: 1px solid #ddd;
     color: #3333336f;
@@ -86,6 +92,7 @@
   }
   
   .calendar-day span {
+    font-family: "Afacad Flux";
     font-size: 1rem;
   }
   

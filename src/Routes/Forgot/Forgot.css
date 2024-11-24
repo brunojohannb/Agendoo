@@ -27,15 +27,17 @@
 
 .textCont h1 {
     color: #000000;
-    margin: 15px;
-    font-family: "Funnel Sans";
+    margin: 10px;
+    font-family: "Afacad Flux";
+    font-size: 40px;
     text-align: center;
 }
 
 .textCont p {
     color: #000000;
     margin-bottom: 25px;
-    font-family: "Funnel Sans";
+    font-family: "Afacad Flux";
+    font-size: 20px;
     text-align: center;
 }
 
@@ -52,7 +54,7 @@
     border: 1px solid #33333355;
     border-radius: 5px;
     box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-family: "Funnel Sans";
+    font-family: "Afacad Flux";
     font-size: 16px;
     padding: 20px 20px;
 }
@@ -77,7 +79,7 @@
     width: 100%;
     height: 30px;
     color: #ffffff;
-    font-family: "Funnel Sans";
+    font-family: "Afacad Flux";
     font-size: 15px;
     font-weight: bold;
     background-color: #FAA300;

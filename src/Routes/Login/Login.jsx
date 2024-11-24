@@ -20,7 +20,7 @@ const Login = () => {
       <div className='container'>
         <form onSubmit={handleSubmit}>
           <div className="logoCont">
-            <img src={RichmoLogo} alt="RichmoLogo" className='logoImage' />
+            <img src={RichmoLogo} alt="RichmoLogo" className='logoImageL' />
           </div>
           <div className="inputs">
             <input 

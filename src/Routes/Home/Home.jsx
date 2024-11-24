@@ -17,7 +17,6 @@ function Home() {
 
   return (
     <div className='Home'>
-      <Navbar />
       <div className='bodyHome'>
         <HomeMenu onMenuClick={handleMenuClick} />
         <div className="contentArea">

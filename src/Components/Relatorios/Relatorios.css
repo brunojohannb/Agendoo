@@ -1,10 +1,9 @@
 .contRelatorios {
     max-width: 190vh;
-    min-height: 85vh;
-    max-height: 90vh;
+    min-height: 100vh;
+    max-height: 100vh;
     margin: 0 auto;
     padding: 20px;
     background-color: #343434;
-    border-radius: 0px 5px 5px 0px;
     font-family: 'Arial', sans-serif;
 }

@@ -27,7 +27,7 @@
     margin-bottom: 30px;
 }
 
-.logoImage {
+.logoImageL {
     width: 300px;
 }
 
@@ -44,7 +44,7 @@
     border: 1px solid #33333355;
     border-radius: 5px 5px 0 0;
     box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-family: "Funnel Sans";
+    font-family: "Afacad Flux";
     font-size: 16px;
     padding: 20px 20px;
 }
@@ -55,7 +55,7 @@
     border: 1px solid #33333355;
     border-radius: 0 0 5px 5px;
     box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-family: "Funnel Sans";
+    font-family: "Afacad Flux";
     font-size: 16px;
     padding: 20px 20px;
 }
@@ -79,7 +79,7 @@
     width: 100%;
     height: 50px;
     color: #ffffff;
-    font-family: "Funnel Sans";
+    font-family: "Afacad Flux";
     font-size: 20px;
     font-weight: bold;
     background-color: #149911;
@@ -98,7 +98,7 @@
     width: 100%;
     height: 30px;
     color: #000000;
-    font-family: "Funnel Sans";
+    font-family: "Afacad Flux";
     font-size: 12px;
     font-weight: bold;
     background-color: #ffffff;
@@ -116,6 +116,7 @@
 .resetPassword {
     display: flex;
     justify-content: center;
+    font-family: "Afacad Flux";
     margin-top: 10px;
 }
 
