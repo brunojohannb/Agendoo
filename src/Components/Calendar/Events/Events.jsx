@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiPlus } from 'react-icons/fi';
 import EventCard from './EventCard';
 import EventForm from './EventForm';
 import './Events.css';
@@ -11,37 +12,44 @@ const Events = ({ date, events, onClose, onAddEvent }) => {
     setIsAddingEvent(false);
   };
 
+  const handleBackdropClick = (e) => {
+    if (e.target.classList.contains('backEvents')) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="backEvents">
-      <div className="contEvents">
-        <button className="closeEvents" onClick={onClose}>×</button>
-        <h2>Eventos do Dia <br /> {date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}</h2>
+    <div className="backEvents" onClick={handleBackdropClick}>
+      <div className="contEvents" onClick={(e) => e.stopPropagation()}>
+        <div className="topContEvents">
+          <button className="closeEvents" onClick={onClose}>×</button>
+          <h2>Eventos do Dia</h2>
+          <h1>{date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}</h1>
+        </div>
         <div className="listEvents">
-          {events.length > 0 ? (
-            <div className="cardsContainer">
-              {events.map((event, idx) => (
-                <EventCard 
-                  key={idx} 
-                  name={event.name || "Evento sem nome"} 
-                  time={event.time || "Sem horário"} 
-                />
-              ))}
-            </div>
-          ) : (
-            <p className="noEventsMessage">Nenhum evento para este dia.</p>
-          )}
-          <button
-            className="addNewEventBtn"
-            onClick={() => setIsAddingEvent(true)}
-          >
-            NOVO EVENTO
-          </button>
+          <div className="gridContainer">
+            {events.map((event, idx) => (
+              <EventCard
+                key={idx}
+                name={event.name || "Evento sem nome"}
+                time={event.time || "Sem horário"}
+              />
+            ))}
+            {!isAddingEvent && (
+              <button
+                className="addNewEventBtn"
+                onClick={() => setIsAddingEvent(true)}
+              >
+                <FiPlus />
+              </button>
+            )}
+          </div>
         </div>
       </div>
       {isAddingEvent && (
-        <EventForm 
-          onSubmit={handleAddEvent} 
-          onCancel={() => setIsAddingEvent(false)} 
+        <EventForm
+          onSubmit={handleAddEvent}
+          onCancel={() => setIsAddingEvent(false)}
         />
       )}
     </div>
@@ -49,4 +57,5 @@ const Events = ({ date, events, onClose, onAddEvent }) => {
 };
 
 export default Events;
+
 

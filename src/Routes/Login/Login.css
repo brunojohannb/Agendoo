@@ -116,12 +116,12 @@
 .resetPassword {
     display: flex;
     justify-content: center;
-    font-family: "Afacad Flux";
     margin-top: 10px;
 }
 
 .resetPassword a {
-    font-size: 14.5px;
+    font-size: 16px;
+    font-family: "Afacad Flux";
     color: #ffffff;
 }
 
