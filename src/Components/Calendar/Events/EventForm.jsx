@@ -4,11 +4,12 @@ import './EventForm.css';
 const EventForm = ({ onSubmit, onCancel }) => {
   const [name, setName] = useState('');
   const [time, setTime] = useState('');
+  const [ftime, setFtime] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
-      onSubmit({ name, time });
+      onSubmit({ name, time, ftime });
     }
   };
 
@@ -27,11 +28,19 @@ const EventForm = ({ onSubmit, onCancel }) => {
             />
           </label>
           <label>
-            Horário do Evento:
+            Inicio do Evento:
             <input
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
+            />
+          </label>
+          <label>
+            Final do Evento:
+            <input
+              type="time"
+              value={ftime}
+              onChange={(e) => setFtime(e.target.value)}
             />
           </label>
           <div className="formButtons">
