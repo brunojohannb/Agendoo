@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Colaboradores.css';
 
 import ColabForm from './Colabs/ColabForm';
+import ColabCard from './Colabs/ColabCard';
 
 const Colaboradores = () => {
   const [colaboradores, setColaboradores] = useState([]);
@@ -36,14 +37,18 @@ const Colaboradores = () => {
       />
       
       <div className="colaboradores-list">
-        <h2>Colaboradores Cadastrados</h2>
-        <ul>
+        <div className="colaboradores-grid">
           {colaboradores.map((colaborador, index) => (
-            <li key={index} style={{ backgroundColor: colaborador.cor }}>
-              <strong>{colaborador.nome}</strong> - {colaborador.email} - {colaborador.telefone} - {colaborador.porcentagem}%
-            </li>
+            <ColabCard
+              key={index}
+              nome={colaborador.nome}
+              email={colaborador.email}
+              telefone={colaborador.telefone}
+              porcentagem={colaborador.porcentagem}
+              cor={colaborador.cor}
+            />
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );

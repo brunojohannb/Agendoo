@@ -84,7 +84,7 @@
     font-weight: bold;
     background-color: #FAA300;
     border-radius: 5px;
-    border: 1px solid #33333355;
+    border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     margin-bottom: 5px;

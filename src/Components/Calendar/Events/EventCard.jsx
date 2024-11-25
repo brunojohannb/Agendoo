@@ -5,8 +5,8 @@ const EventCard = ({ name, time, ftime}) => {
   return (
     <div className="eventCard">
       <h3>{name}</h3>
-      <p>Inicio do Evento: {time || 'Não especificado'}</p>
-      <p>Final do Evento: {ftime || 'Não especificado'}</p>
+      <p>Inicio: {time}</p>
+      <p>Final: {ftime || '--'}</p>
     </div>
   );
 };

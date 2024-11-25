@@ -33,10 +33,11 @@ const EventForm = ({ onSubmit, onCancel }) => {
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
+              required
             />
           </label>
           <label>
-            Final do Evento:
+            Final do Evento (Opcional):
             <input
               type="time"
               value={ftime}
