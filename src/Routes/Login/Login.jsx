@@ -2,14 +2,34 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 import RichmoLogo from "../../assets/RichmoLogo.png";
-import { supabase } from "../../supabaseClient"; 
+import { supabase } from "../../supabaseClient";
 
 const Login = () => {
-  const [username, setUsername] = useState("");  
-  const [password, setPassword] = useState("");  
-  const [errorMessage, setErrorMessage] = useState("");  
-
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+
+  const fetchUserAccounts = async (userId) => {
+    try {
+      const { data, error } = await supabase
+        .from("user_accounts")
+        .select("account_id, accounts(name)")
+        .eq("user_id", userId);
+
+      if (error) throw error;
+
+      if (data && data.length > 0) {
+        const firstAccount = data[0];
+        navigate(`/home/${firstAccount.account_id}`);
+      } else {
+        setErrorMessage("Nenhuma conta vinculada ao usuário.");
+      }
+    } catch (error) {
+      console.error("Erro ao buscar contas:", error.message);
+      setErrorMessage("Erro ao carregar contas.");
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,12 +40,11 @@ const Login = () => {
         password: password,
       });
 
-      
       if (error) {
-        setErrorMessage(error.message); 
-      } else {
-        console.log("Usuário logado com sucesso:", data);
-        navigate("/Home");
+        setErrorMessage(error.message);
+      } else if (data.user) {
+        console.log("Usuário logado com sucesso:", data.user);
+        await fetchUserAccounts(data.user.id);
       }
     } catch (error) {
       setErrorMessage("Erro inesperado. Tente novamente.");
@@ -79,4 +98,7 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
 

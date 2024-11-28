@@ -46,3 +46,52 @@
     box-shadow: 10px 0 0 rgba(56, 15, 107, 1);
     color: #fff;
   }
+
+.HomeAcounts{
+    display: flex;
+    justify-content: right;
+    padding: 20px;
+}
+
+.dropdownButton {
+    background:none;
+    color: white;
+    font-family: "Afacad Flux";
+    font-size: 20px;
+    text-align: right;
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
+}
+  
+.dropdownButton:hover {
+    text-decoration: none;
+}
+
+.dropdownButton p {
+    font-family: "Afacad Flux";
+    font-size: 10px;
+}
+  
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+}
+  
+.dropdownItem {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+  
+.dropdownItem:hover {
+    background-color: #f0f0f0;
+}
